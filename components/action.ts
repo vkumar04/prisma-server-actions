@@ -23,5 +23,5 @@ export async function updateOwnerAction(id: number, data: any){
 export async function deletePetAction(ownerId: number, petId: number){
     if(!ownerId || !petId) throw new Error('No id provided')
     const pet = await deleteOwnerPet(ownerId, petId)
-    return pet
+return pet
 }

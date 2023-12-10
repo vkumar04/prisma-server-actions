@@ -50,7 +50,8 @@ export async function updateOwnerPet(ownerId: number, petId: number, data: any) 
 export async function deleteOwnerPet(ownerId: number, petId: number) {
     try {
         const pet = await prisma.pet.delete({
-            where: { id: petId }
+            where: { id: petId },
+            include: { owner: true }
         });
         return pet;
     }
