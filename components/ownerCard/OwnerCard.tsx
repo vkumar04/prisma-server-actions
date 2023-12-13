@@ -19,7 +19,7 @@ export default async function ownerCard() {
               <dd className="text-sm text-gray-500">{`${owner.address} ${owner.city}, ${owner.state} ${owner.zip}`}</dd>
               <dt className="sr-only">Role</dt>
               <dd className="mt-3">
-                <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 ${owner.pets.length > 0 ? "bg-green-50": "bg-red-50"}`}>
+                <span className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 ${owner.pets.length > 0 ? "bg-green-50 text-green-500": "bg-red-50 text-red-500"}`}>
                   {owner.pets.length} pets
                 </span>
               </dd>
