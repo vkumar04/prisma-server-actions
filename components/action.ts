@@ -1,7 +1,7 @@
 'use server'
 
 import { getOwner, updateOwner } from "@/lib/owner"
-import { getOwnerPets, deleteOwnerPet } from "@/lib/pet"
+import { getOwnerPets, deleteOwnerPet, getAllPets } from "@/lib/pet"
 
 export async function getOwnerAction(id: number){
     const owner = await getOwner(id)
@@ -24,4 +24,9 @@ export async function deletePetAction(ownerId: number, petId: number){
     if(!ownerId || !petId) throw new Error('No id provided')
     const pet = await deleteOwnerPet(ownerId, petId)
 return pet
+}
+
+export async function getAllPetsAction() {
+    const pets = await getAllPets()
+    console.log(pets)
 }

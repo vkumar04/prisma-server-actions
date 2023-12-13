@@ -13,6 +13,7 @@ export default function Navbar() {
 
   const navigation = [
     { name: 'Owners', href: '/', current: path === '/' },
+    { name: 'Pets', href: '/pets', current: path === '/pets' },
     { name: 'Create Owner', href: '/createOwner', current: path === '/createOwner' },
   ]
   return (

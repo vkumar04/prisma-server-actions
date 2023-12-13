@@ -1,5 +1,16 @@
 import prisma from "./prisma";
 
+export async function getAllPets() {
+    try {
+        const pets = await prisma.pet.findMany();
+        return pets;
+    }
+    catch (err) {
+        console.error(err);
+        return null;
+    }
+}
+
 export async function getOwnerPets(id: number) {
     try {
         const pets = await prisma.owner.findUnique({
