@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { getAllPetsAction } from "../action"
 import { useQuery } from "@tanstack/react-query"
 
@@ -8,11 +7,18 @@ export default function PetCard() {
         queryKey: ["pets"],
         queryFn: getAllPetsAction,
     })
-    if (error) return <h1>Error</h1>
-    console.log(data)
-    return (
-        <div>
-            {JSON.stringify(data)}
-        </div>
-    )
+    if (error) return <h1>{error.message}</h1>
+
+    if (data) {
+        return (
+            <div>
+                {data.map((pet: any) => (
+                    <div key={pet.id}>
+                        <h1>{pet.name}</h1>
+                        <p>{pet.description}</p>
+                    </div>
+                ))}
+            </div>
+        )
+    }
 }

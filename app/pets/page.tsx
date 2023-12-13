@@ -3,11 +3,13 @@ import { getAllPetsAction } from "@/components/action"
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query"
 
 export default async function Page() {
+    // const pets = await getAllPetsAction()
     const queryClient = new QueryClient()
     await queryClient.prefetchQuery({
         queryKey: ["pets"],
         queryFn: getAllPetsAction,
     })
+
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
             <PetCard />
